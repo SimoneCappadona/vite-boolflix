@@ -3,7 +3,7 @@ import appCard from "./appCard.vue";
 
 export default {
   components: { appCard },
-  props: { films: Array },
+  props: { films: Array,},
 };
 </script>
 

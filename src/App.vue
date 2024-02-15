@@ -8,7 +8,10 @@ export default {
   data() {
     return {
       films: [],
-         
+      lang:[],
+      title:[],
+      theme: [],
+      vote:[],
     };
   },
   methods: {
@@ -19,6 +22,10 @@ export default {
           )
           .then((result) => {
             this.films = result.data.results; 
+            this.title = result.data.original_title;
+            this.theme = result.data.overview;
+            this.lang = result.data.original_language;
+            this.vote = result.data.vote_average;
           }); 
   },
     },
@@ -27,7 +34,7 @@ export default {
 </script>
 <template>
   <appHeader @onClick="pippo"></appHeader>
-  <appMain :films="films"></appMain>
+  <appMain :films="films" :lang="lang" :title="title" :theme="theme" :vote="vote"></appMain>
   <appFooter></appFooter>
 </template>
 

@@ -1,6 +1,7 @@
 <script>
 export default {
-  props: { films: Object },
+  props: {
+    films: Object,},
 };
 </script>
 
@@ -11,6 +12,10 @@ export default {
       alt=""
       class="object-fit-fill rounded"
     />
+    <h1 class="ftitle">{{ films.original_title }}</h1>
+    <p class="ftheme">{{ films.overview }}</p>
+    <p class="flang">{{ films.original_language }}</p>
+    <p class="fvote">{{ films.vote_average }}</p>
   </div>
 </template>
 
