@@ -6,6 +6,8 @@ import axios from "axios";
 
 export default {
   data() {
+  
+
     return {
       films: [],
       lang:[],
@@ -26,7 +28,7 @@ export default {
             this.theme = result.data.overview;
             this.lang = result.data.original_language;
             this.vote = result.data.vote_average;
-          }); 
+          });
   },
     },
     components: { appHeader, appMain, appFooter },
