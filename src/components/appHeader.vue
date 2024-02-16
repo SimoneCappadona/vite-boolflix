@@ -2,13 +2,14 @@
 export default {
   data() {
     return {
-      filmSearch:''
+      filmSearch:'',
+      
     }
     
   }, 
   
   emits:['onClick'],
-  props:{films: Array}
+  props:{films: Array, tvSeries:Array,}
 };
 </script>
 <template>

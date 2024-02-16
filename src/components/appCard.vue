@@ -4,15 +4,10 @@ export default {
     getVote(vote) {
       return Math.ceil(vote / 2);
     },
-    getLang(language) {
-      return;
-    },
-    nullImg(imgnull) {
-      return;
-    },
+    getLang(language) {},
   },
   props: {
-    films: Object,
+    ikea: Object,
   },
 };
 </script>
@@ -22,19 +17,33 @@ export default {
     <div class="cardcontainer">
       <div class="filmimg">
         <img
-          :src="'https://image.tmdb.org/t/p/w342' + films.poster_path"
+          :src="'https://image.tmdb.org/t/p/w342' + ikea.poster"
           alt=""
           class="object-fit-fill rounded"
+          v-if="ikea.poster"
+        />
+        <img
+          src="../assets/img/10-error-404-page-examples-for-UX-design.png.webp"
+          alt=""
+          v-else
+          class="noimg rounded"
         />
       </div>
       <div class="hoveredtext">
-        <h1 class="ftitle text-center">{{ films.original_title }}</h1>
-        <p class="ftheme text-center">{{ films.overview }}</p>
-        <p class="flang text-center p-2 d-flex">Language: <img src="../assets/img/English_language.png" class="langimg mx-2">{{ films.original_language }}</p>
+        <h1 class="ftitle text-center">{{ ikea.title }}</h1>
+        <p class="ftheme text-center">{{ ikea.theme }}</p>
+        <p class="flang text-center p-2 d-flex">
+          Language:
+          <img
+            
+            src="../assets/img/English_language.png"
+            class="langimg mx-2"
+          />{{ ikea.lang }}
+        </p>
         <p class="fvote text-center">
           Vote:<i
             :class="
-              i <= getVote(films.vote_average)
+              i <= getVote(ikea.vote)
                 ? 'fa-solid fa-star fa-lg'
                 : 'fa-regular fa-star fa-lg'
             "
@@ -75,7 +84,11 @@ export default {
     display: block;
   }
 }
-.langimg{
+.langimg {
   width: 20%;
+}
+.noimg {
+  height: 350px;
+  object-fit: cover;
 }
 </style>
